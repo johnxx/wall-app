@@ -1,5 +1,6 @@
 <ion-view view-title="Wallpaper Gallery" ng>
 	<ion-content ng-controller="GalleryCtrl as gallery" ng-init="gallery.showAll()">
+		<!-- @TODO: Look at using lazy-loading here. -->
 		<div class="list card" ng-repeat="image in gallery.index">
 			<div class="item item-image" ng-bind-html="image.picture"></div>
 			<span class="item item-icon-right">

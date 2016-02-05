@@ -16,20 +16,21 @@ function GalleryCtrl($scope, $localStorage, $sce, $stateParams, galleryservice, 
 	vm.gallery_id = $stateParams.gallery_id;
 	vm.img_base_url = img_base_url;
 
-	var gallery = $stateParams;
 	vm.showAll = function() {
 		 galleryservice.index(vm.gallery_id)
 			 .then(function(data) {
 				 vm.index = data;
 				 vm.index.forEach(function(el, idx, arr) {
+					 // The server returns a <picture> element containing
+					 // the correct URLs to retrieve a copy of the image resized to
+					 // roughly fit the current device
+					 // @TODO: Locally adjust <picture> to match viewport
 					 var pic = el.picture[0];
 					 el.picture = $sce.trustAsHtml(pic);
 					 arr[idx] = el;
 				 });
-				 console.log(vm.index[0]);
-				 console.log("Loaded gallery index");
 			 }, function(data) {
-				 console.log("Failed to retrieve gallery index");
+				 alert("Failed to load gallery");
 			 });
 	};
 };
