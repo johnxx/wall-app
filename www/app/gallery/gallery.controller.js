@@ -25,7 +25,6 @@ function GalleryCtrl($scope, $localStorage, $sce, galleryservice, img_base_url) 
 					 el.picture = $sce.trustAsHtml(pic);
 					 arr[idx] = el;
 				 });
-				 console.log(vm.index[0].picture);
 				 console.log("Loaded gallery index");
 			 }, function(data) {
 				 console.log("Failed to retrieve gallery index");
