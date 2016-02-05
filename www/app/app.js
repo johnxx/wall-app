@@ -46,13 +46,12 @@ app.run(function($ionicPlatform, $rootScope) {
 	controllerAs: 'vm'
   })
   .state('app.gallery', {
-	  url: "/gallery-all",
+	  url: "/gallery/:gallery_id",
 	  templateUrl: "templates/gallery.html",
-	  // template: "<span>Gallery?</span>",
 	  controller: "GalleryCtrl",
 	  controllerAs: 'vm'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app');
+  $urlRouterProvider.otherwise('/app/gallery/all');
 });

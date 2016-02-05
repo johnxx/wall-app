@@ -1,10 +1,12 @@
-<ion-view view-title="Gallery" ng>
+<ion-view view-title="Wallpaper Gallery" ng>
 	<ion-content ng-controller="GalleryCtrl as gallery" ng-init="gallery.showAll()">
 		<div class="list card" ng-repeat="image in gallery.index">
 			<div class="item item-image" ng-bind-html="image.picture"></div>
-			<span class="item item-icon-right assertive">
-				{{image.title}}
-				<i class="icon ion-android-download"></i>
+			<span class="item item-icon-right">
+				{{image.title}} [{{image.info[0].width}}x{{image.info[0].height}}]
+				<a href="{{gallery.img_base_url}}{{image.info[0].filename}}">
+					<i class="icon ion-android-download"></i>
+				</a>
 			</span>
 		</div>
 	</ion-content>
