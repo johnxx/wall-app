@@ -1,0 +1,11 @@
+<ion-view view-title="Gallery" ng>
+	<ion-content ng-controller="GalleryCtrl as gallery" ng-init="gallery.showAll()">
+		<ion-list>
+			<ion-item ng-repeat="image in gallery.index">
+				<p>{{image.title}}</p>
+				<!-- <img src="{{gallery.img_base_url}}{{image.field_reddit_image[0].filename}}"></img> -->
+				<div ng-bind-html="image.picture"></div>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
